@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "nome": "SEFAZ SC 2026",
+  "cargo": null,
+  "banca": null,
+  "dataProva": "2026-11-29",
+  "origem": "PLANEJAMENTO",
+  "ativo": true,
+  "ativadoEm": "2026-10-15T14:10:00.679366Z",
+  "desativadoEm": null,
+  "diasParaProva": 45,
+  "totalAssuntos": 8,
+  "emComumComAtivo": 8
+}

@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 |---|---|
-| Versão | 1.1.0 |
+| Versão | 1.2.0 |
 | Data | 2026-10-15 |
 | Status | Vigente |
 | Subordinada a | `SGE-Concursos`: `especificacao/02_JORNADAS.md` v1.8.0 (jornadas, telas, regras vinculantes, §2.2 lembrete), `docs/00A_ADR.md` ADR-015, ADR-038, ADR-040, ADR-041, `docs/04_FRONTEND.md` (comportamento de referência das telas) |
@@ -169,6 +169,28 @@ Primeira abertura: pede o endereço do SGE (ex.:
   servidor local.
 - O endereço fica em DataStore; trocar exige novo teste.
 
+### 3.9 Concurso-alvo, disciplinas e Concursos (`02_JORNADAS` J-5, §4.4, §4.5 do SGE)
+
+- **Hoje** ganha no topo a linha do concurso-alvo (nome · cargo, e
+  "prova em N dias" com os dias que o servidor manda). Sem concurso (204),
+  "Nenhum concurso-alvo — adicionar edital". Falhar ali não esconde o plano.
+- **Assuntos** abre pelas disciplinas: cartão com peso e backlog/frente/
+  consolidados (`/api/disciplinas/resumo`); tocar expande os assuntos.
+- **Concursos** (rota `concursos`, a partir de Hoje e de Ajustes): concurso-
+  alvo, "Novo edital" (ou o motivo de estar indisponível), análises ainda
+  abertas e o histórico com "Reativar" — com diálogo de confirmação.
+
+### 3.10 Edital novo (rotas `concursos/novo` e `concursos/analise/{id}`)
+
+- Escolher o PDF pelo seletor de arquivos do Android e enviar (multipart).
+- Enquanto a IA trabalha, consulta a cada 3 s, só com a tela aberta.
+- Cargo por botões de rádio; revisão com nome, cargo, banca, data da prova
+  (seletor de data), resumo recalculado, peso por disciplina (pílulas),
+  caixa por assunto e "tratar como novo". "Confirmar e ativar" envia só os
+  marcados e volta para Concursos.
+- Nenhum cálculo de peso ou correspondência no app (D-61, D-63 são do
+  servidor).
+
 ---
 
 ## 4. A API consumida
@@ -187,6 +209,10 @@ O app consome exatamente estes endpoints do SGE. Os DTOs ficam em
 | Erros | `GET /api/erros?assuntoId=`, `POST /api/erros` |
 | Progresso | `GET /api/metricas/m1?janela=`, `GET /api/metricas/m3`, `GET /api/metricas/m4`, `GET /api/frente`, `GET /api/frente/sugestoes-divisao`, `GET /api/disciplinas` |
 | Ajustes | `GET /api/parametros`, `PATCH /api/parametros/{chave}` |
+| Hoje (linha do concurso) | `GET /api/concursos/ativo` (204 sem concurso) |
+| Assuntos | `GET /api/disciplinas/resumo` |
+| Concursos | `GET /api/concursos`, `POST /api/concursos/{id}/ativar`, `GET /api/editais/ia`, `GET /api/editais/analises` |
+| Edital novo | `POST /api/editais/analises` (multipart), `GET /api/editais/analises/{id}`, `POST .../cargo`, `POST .../tentar-de-novo`, `POST .../confirmar` |
 
 **Compatibilidade:**
 
@@ -304,4 +330,5 @@ conferência em aparelho real é do usuário (§8).
 | Versão | Data | Mudança |
 |---|---|---|
 | 1.0.0 | 2026-10-15 | Criado, a pedido do usuário, junto com a ADR-041 e `02_JORNADAS` v1.8.0 do SGE |
+| 1.2.0 | 2026-10-15 | Sprint 18 do SGE (ADR-042, ADR-043): linha do concurso-alvo em Hoje, disciplinas em Assuntos, telas Concursos e Edital novo (§3.9, §3.10); §4 com os endpoints novos |
 | 1.1.0 | 2026-10-15 | Implementação: §5.3 ganha "voltar apaga o rascunho" e "rascunho de Registrar é de um tipo" (achados ao implementar); §6 explicita "plano sem nada não notifica"; §7 registra Robolectric offline e o teste de abertura |

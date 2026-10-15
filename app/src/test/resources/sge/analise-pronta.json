@@ -1,0 +1,120 @@
+{
+  "id": 2,
+  "nomeArquivo": "edital.pdf",
+  "status": "PRONTA",
+  "etapaFalha": null,
+  "erro": null,
+  "modelo": "anthropic/claude-sonnet-5.5",
+  "concursoNome": "TCE RJ 2026",
+  "banca": "FGV",
+  "dataProva": "2026-12-13",
+  "cargos": [
+    "Analista de Controle Externo - Tecnologia da Informacao",
+    "Tecnico de Controle Externo"
+  ],
+  "cargoEscolhido": "Analista de Controle Externo - Tecnologia da Informacao",
+  "proposta": [
+    {
+      "nome": "Banco de Dados",
+      "questoes": 15,
+      "peso": "ALTO",
+      "pesoDeterminado": true,
+      "disciplinaExistenteId": 1,
+      "disciplinaExistenteNome": "Banco de Dados",
+      "assuntos": [
+        {
+          "nome": "Normalizacao e formas normais",
+          "assuntoExistenteId": 1,
+          "assuntoExistenteNome": "Normalização",
+          "disciplinaAtualNome": "Banco de Dados"
+        },
+        {
+          "nome": "SQL: consultas, juncoes e subconsultas",
+          "assuntoExistenteId": 4,
+          "assuntoExistenteNome": "SQL — junções",
+          "disciplinaAtualNome": "Banco de Dados"
+        },
+        {
+          "nome": "Data Warehouse e modelagem dimensional",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        },
+        {
+          "nome": "Bancos NoSQL",
+          "assuntoExistenteId": 6,
+          "assuntoExistenteNome": "NoSQL",
+          "disciplinaAtualNome": "Banco de Dados"
+        }
+      ]
+    },
+    {
+      "nome": "Engenharia de Software",
+      "questoes": 10,
+      "peso": "MEDIO",
+      "pesoDeterminado": true,
+      "disciplinaExistenteId": 3,
+      "disciplinaExistenteNome": "Engenharia de Software",
+      "assuntos": [
+        {
+          "nome": "Metodos ageis: Scrum e Kanban",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        },
+        {
+          "nome": "Testes de software",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        }
+      ]
+    },
+    {
+      "nome": "Lingua Portuguesa",
+      "questoes": 5,
+      "peso": "BAIXO",
+      "pesoDeterminado": true,
+      "disciplinaExistenteId": 4,
+      "disciplinaExistenteNome": "Lingua Portuguesa",
+      "assuntos": [
+        {
+          "nome": "Interpretacao de textos",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        },
+        {
+          "nome": "Concordancia verbal e nominal",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        }
+      ]
+    },
+    {
+      "nome": "Etica no Servico Publico",
+      "questoes": null,
+      "peso": "MEDIO",
+      "pesoDeterminado": false,
+      "disciplinaExistenteId": 5,
+      "disciplinaExistenteNome": "Etica no Servico Publico",
+      "assuntos": [
+        {
+          "nome": "Codigo de Etica do Servidor",
+          "assuntoExistenteId": null,
+          "assuntoExistenteNome": null,
+          "disciplinaAtualNome": null
+        }
+      ]
+    }
+  ],
+  "resumo": {
+    "novos": 6,
+    "emComum": 3,
+    "foraDoEdital": 11
+  },
+  "concursoId": null,
+  "criadoEm": "2026-10-15T14:10:20.289622Z",
+  "atualizadoEm": "2026-10-15T14:10:23.410645Z"
+}

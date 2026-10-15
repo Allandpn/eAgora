@@ -1,6 +1,10 @@
 package br.com.estudos.app.data.api
 
+import okhttp3.MultipartBody
+import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Multipart
+import retrofit2.http.Part
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
@@ -60,4 +64,41 @@ interface SgeApi {
 
     @GET("api/frente/sugestoes-divisao")
     suspend fun sugestoesDivisao(): List<SugestaoDivisaoDto>
+
+    // ---- Sprint 18 do SGE (ADR-042, ADR-043) ----
+
+    @GET("api/concursos")
+    suspend fun concursos(): List<ConcursoDto>
+
+    /** 204 sem concurso-alvo: corpo nulo. */
+    @GET("api/concursos/ativo")
+    suspend fun concursoAtivo(): Response<ConcursoDto>
+
+    @POST("api/concursos/{id}/ativar")
+    suspend fun ativarConcurso(@Path("id") id: Long): ConcursoDto
+
+    @GET("api/disciplinas/resumo")
+    suspend fun disciplinasResumo(): List<DisciplinaResumoDto>
+
+    @GET("api/editais/ia")
+    suspend fun iaStatus(): IaStatusDto
+
+    @Multipart
+    @POST("api/editais/analises")
+    suspend fun enviarEdital(@Part arquivo: MultipartBody.Part): AnaliseEditalDto
+
+    @GET("api/editais/analises")
+    suspend fun analises(): List<AnaliseEditalDto>
+
+    @GET("api/editais/analises/{id}")
+    suspend fun analise(@Path("id") id: Long): AnaliseEditalDto
+
+    @POST("api/editais/analises/{id}/cargo")
+    suspend fun escolherCargo(@Path("id") id: Long, @Body corpo: EscolhaCargoDto): AnaliseEditalDto
+
+    @POST("api/editais/analises/{id}/tentar-de-novo")
+    suspend fun tentarDeNovo(@Path("id") id: Long): AnaliseEditalDto
+
+    @POST("api/editais/analises/{id}/confirmar")
+    suspend fun confirmarEdital(@Path("id") id: Long, @Body corpo: ConfirmacaoEditalDto): ConcursoDto
 }

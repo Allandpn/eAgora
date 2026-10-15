@@ -34,6 +34,8 @@ import br.com.estudos.app.ui.ajustes.TelaAjustes
 import br.com.estudos.app.ui.assuntos.TelaAssuntoDetalhe
 import br.com.estudos.app.ui.assuntos.TelaAssuntos
 import br.com.estudos.app.ui.comum.Carregando
+import br.com.estudos.app.ui.concursos.TelaConcursos
+import br.com.estudos.app.ui.concursos.TelaEdital
 import br.com.estudos.app.ui.configuracao.TelaConfiguracao
 import br.com.estudos.app.ui.erros.TelaErros
 import br.com.estudos.app.ui.hoje.TelaHoje
@@ -48,6 +50,9 @@ object Rotas {
     const val PROGRESSO = "progresso"
     const val AJUSTES = "ajustes"
     const val CONFIGURACAO = "configuracao"
+    const val CONCURSOS = "concursos"
+    const val EDITAL_NOVO = "concursos/novo"
+    fun analise(id: Long) = "concursos/analise/$id"
     fun recuperar(assuntoId: Long) = "recuperar/$assuntoId"
     fun registrar(tipo: String, assuntoId: Long) = "registrar/$tipo/$assuntoId"
     fun assunto(assuntoId: Long) = "assuntos/$assuntoId"
@@ -99,6 +104,12 @@ fun NavegacaoApp(container: AppContainer) {
                 composable(Rotas.PROGRESSO) { TelaProgresso(container) }
                 composable(Rotas.AJUSTES) { TelaAjustes(container, nav) }
                 composable(Rotas.CONFIGURACAO) { TelaConfiguracao(container, nav) }
+                composable(Rotas.CONCURSOS) { TelaConcursos(container, nav) }
+                composable(Rotas.EDITAL_NOVO) { TelaEdital(container, nav, null) }
+                composable(
+                    "concursos/analise/{id}",
+                    arguments = listOf(navArgument("id") { type = NavType.LongType }),
+                ) { TelaEdital(container, nav, it.arguments!!.getLong("id")) }
                 composable(
                     "recuperar/{assuntoId}",
                     arguments = listOf(navArgument("assuntoId") { type = NavType.LongType }),

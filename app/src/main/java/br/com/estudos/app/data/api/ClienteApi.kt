@@ -47,7 +47,9 @@ fun criarApi(urlBase: String, cliente: OkHttpClient = clientePadrao()): SgeApi {
 
 fun clientePadrao(): OkHttpClient = OkHttpClient.Builder()
     .connectTimeout(10, TimeUnit.SECONDS)
-    .readTimeout(20, TimeUnit.SECONDS)
+    .readTimeout(60, TimeUnit.SECONDS)
+    // O PDF do edital (até 30 MB) sobe pela Tailscale e o servidor extrai o texto antes de responder.
+    .writeTimeout(120, TimeUnit.SECONDS)
     // Ponto de interceptação reservado para autenticação, se um dia existir (ADR-040 do SGE).
     .build()
 

@@ -56,6 +56,17 @@ open class ApiFalsa : SgeApi {
     override suspend fun m4(): M4Dto = TODO()
     override suspend fun frente(): FrenteResumoDto = TODO()
     override suspend fun sugestoesDivisao(): List<SugestaoDivisaoDto> = TODO()
+    override suspend fun concursos(): List<ConcursoDto> = TODO()
+    override suspend fun concursoAtivo(): retrofit2.Response<ConcursoDto> = TODO()
+    override suspend fun ativarConcurso(id: Long): ConcursoDto = TODO()
+    override suspend fun disciplinasResumo(): List<DisciplinaResumoDto> = TODO()
+    override suspend fun iaStatus(): IaStatusDto = TODO()
+    override suspend fun enviarEdital(arquivo: okhttp3.MultipartBody.Part): AnaliseEditalDto = TODO()
+    override suspend fun analises(): List<AnaliseEditalDto> = TODO()
+    override suspend fun analise(id: Long): AnaliseEditalDto = TODO()
+    override suspend fun escolherCargo(id: Long, corpo: EscolhaCargoDto): AnaliseEditalDto = TODO()
+    override suspend fun tentarDeNovo(id: Long): AnaliseEditalDto = TODO()
+    override suspend fun confirmarEdital(id: Long, corpo: ConfirmacaoEditalDto): ConcursoDto = TODO()
 }
 
 fun provedorCom(api: SgeApi, armazenamento: ArmazenamentoFalso = ArmazenamentoFalso()) = ProvedorApi(armazenamento) { api }

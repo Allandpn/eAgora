@@ -126,6 +126,7 @@ fun TelaAjustes(container: AppContainer, nav: NavHostController) {
     val e by vm.estado.collectAsStateWithLifecycle()
 
     Pagina(Modifier.verticalScroll(rememberScrollState())) {
+        br.com.estudos.app.ui.comum.CartaoItem("Concursos e editais", "Concurso-alvo, edital novo e histórico") { nav.navigate(Rotas.CONCURSOS) }
         when {
             e.carregando -> Carregando()
             e.erro != null -> CaixaErro(e.erro!!) { vm.carregar() }

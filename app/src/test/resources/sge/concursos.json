@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nome": "SEFAZ SC 2026",
+    "cargo": null,
+    "banca": null,
+    "dataProva": "2026-11-29",
+    "origem": "PLANEJAMENTO",
+    "ativo": true,
+    "ativadoEm": "2026-10-15T14:10:00.679366Z",
+    "desativadoEm": null,
+    "diasParaProva": 45,
+    "totalAssuntos": 8,
+    "emComumComAtivo": 8
+  },
+  {
+    "id": 2,
+    "nome": "TCE RJ 2026",
+    "cargo": "Analista de Controle Externo - Tecnologia da Informacao",
+    "banca": "FGV",
+    "dataProva": "2026-12-13",
+    "origem": "ANALISE_IA",
+    "ativo": false,
+    "ativadoEm": "2026-10-15T14:09:59.947300Z",
+    "desativadoEm": "2026-10-15T14:10:00.679366Z",
+    "diasParaProva": 59,
+    "totalAssuntos": 8,
+    "emComumComAtivo": 2
+  }
+]

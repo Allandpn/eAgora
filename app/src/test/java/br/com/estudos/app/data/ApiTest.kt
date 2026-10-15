@@ -92,4 +92,35 @@ class ApiTest {
         val e = assertThrows(ErroApi::class.java) { kotlinx.coroutines.runBlocking { chamar { api.plano() } } }
         assertTrue(e.semConexao)
     }
+
+    @Test fun `respostas reais da Sprint 18 do SGE`() = runTest {
+        responder("concursos.json")
+        val concursos = api.concursos()
+        assertEquals(2, concursos.size)
+        assertEquals(OrigemConcurso.ANALISE_IA, concursos.first { it.nome == "TCE RJ 2026" }.origem)
+        responder("concurso-ativo.json")
+        val ativo = api.concursoAtivo().body()!!
+        assertTrue(ativo.ativo)
+        assertNotNull(ativo.diasParaProva)
+        servidor.enqueue(MockResponse().setResponseCode(204))
+        assertNull("204 = sem concurso-alvo", api.concursoAtivo().body())
+        responder("disciplinas-resumo.json"); assertTrue(api.disciplinasResumo().any { it.frente > 0 })
+        responder("editais-ia.json"); assertTrue(api.iaStatus().disponivel)
+        responder("analise-cargo.json")
+        val cargo = api.analise(2)
+        assertEquals(StatusAnalise.ESCOLHER_CARGO, cargo.status)
+        assertEquals(2, cargo.cargos.size)
+        responder("analise-pronta.json")
+        val pronta = api.analise(2)
+        assertEquals(StatusAnalise.PRONTA, pronta.status)
+        assertEquals(TipoPeso.ALTO, pronta.proposta!!.first().peso)
+        assertFalse(pronta.proposta!!.last().pesoDeterminado)
+        assertNotNull(pronta.resumo)
+    }
+
+    @Test fun `etapa errada vem como problem+json`() = runTest {
+        servidor.enqueue(MockResponse().setResponseCode(409).setHeader("Content-Type", "application/problem+json").setBody(fixture("problema-etapa.json")))
+        val e = assertThrows(ErroApi::class.java) { kotlinx.coroutines.runBlocking { chamar { api.escolherCargo(2, EscolhaCargoDto("x")) } } }
+        assertEquals("ETAPA_INVALIDA", e.codigo)
+    }
 }

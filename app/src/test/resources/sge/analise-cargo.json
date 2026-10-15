@@ -1,0 +1,21 @@
+{
+  "id": 2,
+  "nomeArquivo": "edital.pdf",
+  "status": "ESCOLHER_CARGO",
+  "etapaFalha": null,
+  "erro": null,
+  "modelo": "anthropic/claude-sonnet-5.5",
+  "concursoNome": "TCE RJ 2026",
+  "banca": "FGV",
+  "dataProva": "2026-12-13",
+  "cargos": [
+    "Analista de Controle Externo - Tecnologia da Informacao",
+    "Tecnico de Controle Externo"
+  ],
+  "cargoEscolhido": null,
+  "proposta": null,
+  "resumo": null,
+  "concursoId": null,
+  "criadoEm": "2026-10-15T14:10:20.289622Z",
+  "atualizadoEm": "2026-10-15T14:10:20.313455Z"
+}

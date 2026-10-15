@@ -10,6 +10,7 @@ Especificação: `especificacao/ESPECIFICACAO.md`. Decisões: `docs/ADR.md`.
 | A3 | Progresso, Ajustes (com Lembrete e Servidor) | **feito** |
 | A4 | Lembrete do turno, plano sem rede, CI com APK | **feito** (CI roda quando o repositório estiver no GitHub) |
 | A5 | Uso em aparelho real (Tailscale + `tailscale serve`) | **você** |
+| A6 | Sprint 18 do SGE: concurso-alvo em Hoje, disciplinas em Assuntos, Concursos, Edital novo por IA | **feito** — 34 testes (fixtures reais dos endpoints novos, consulta periódica, revisão e corpo de confirmação) |
 
 ## O que está verificado
 

@@ -36,6 +36,7 @@ import br.com.estudos.app.ui.comum.descricao
 import br.com.estudos.app.ui.comum.lembrarViewModel
 import br.com.estudos.app.ui.comum.linkAbrivel
 import br.com.estudos.app.ui.comum.plural
+import br.com.estudos.app.ui.comum.textoProva
 import kotlinx.coroutines.flow.drop
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -74,6 +75,14 @@ fun TelaHoje(container: AppContainer, nav: NavHostController, snackbar: Snackbar
         modifier = Modifier.fillMaxSize(),
     ) {
         Pagina(Modifier.verticalScroll(rememberScrollState())) {
+            estado.concurso?.let { linha ->
+                val c = linha.concurso
+                if (c != null) {
+                    CartaoItem(c.nome + (c.cargo?.let { " · $it" } ?: ""), textoProva(c.diasParaProva)) { nav.navigate(Rotas.CONCURSOS) }
+                } else {
+                    CartaoItem("Nenhum concurso-alvo — adicionar edital") { nav.navigate(Rotas.CONCURSOS) }
+                }
+            }
             when {
                 estado.carregando && estado.plano == null -> Carregando()
                 estado.erro != null -> CaixaErro(estado.erro!!) { vm.carregar() }

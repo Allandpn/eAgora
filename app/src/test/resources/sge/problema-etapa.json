@@ -1,0 +1,10 @@
+{
+  "detail": "Esta ação não cabe agora: a análise está em PRONTA.",
+  "instance": "/api/editais/analises/2/cargo",
+  "status": 409,
+  "title": "Conflict",
+  "type": "https://estudos.local/errors/regra-de-negocio",
+  "codigo": "ETAPA_INVALIDA",
+  "campo": null,
+  "requestId": "927d0952"
+}

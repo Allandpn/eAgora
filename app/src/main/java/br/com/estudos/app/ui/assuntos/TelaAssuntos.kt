@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -44,14 +45,26 @@ fun TelaAssuntos(container: AppContainer, nav: NavHostController) {
             estado.carregando -> Carregando()
             estado.erro != null -> CaixaErro(estado.erro!!) { vm.carregar() }
             estado.vazio -> Text("Nenhum assunto ativo ainda.", color = LocalCoresExtras.current.texto2)
-            else -> estado.grupos.filter { it.assuntos.isNotEmpty() }.forEach { grupo ->
+            else -> estado.grupos.forEach { grupo ->
+                val aberta = grupo.disciplina.id in estado.abertas
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    TituloSecao(grupo.disciplina.nome)
-                    grupo.assuntos.forEach { a ->
-                        val titulo = (a.assunto.ordem?.let { "$it. " } ?: "") + a.assunto.nome
-                        CartaoItem(titulo, "${a.assunto.peso.rotulo} · ${a.fase.rotulo}") {
-                            vm.selecionar(grupo.disciplina, a)
-                            nav.navigate(Rotas.assunto(a.assunto.id))
+                    val r = grupo.resumo
+                    val contagem = if (r == null) "${grupo.assuntos.size} assuntos"
+                    else "${r.backlog} no backlog · ${r.frente} na frente · ${r.consolidados} ${if (r.consolidados == 1L) "consolidado" else "consolidados"}"
+                    CartaoItem(
+                        "${grupo.disciplina.nome} · peso ${grupo.disciplina.peso.rotulo.lowercase()}",
+                        contagem,
+                    ) { vm.alternar(grupo.disciplina.id) }
+                    if (aberta) {
+                        if (grupo.assuntos.isEmpty()) Text("Nenhum assunto ativo.", color = LocalCoresExtras.current.texto2)
+                        grupo.assuntos.forEach { a ->
+                            val titulo = (a.assunto.ordem?.let { "$it. " } ?: "") + a.assunto.nome
+                            Row(Modifier.padding(start = 16.dp)) {
+                                CartaoItem(titulo, "${a.assunto.peso.rotulo} · ${a.fase.rotulo}") {
+                                    vm.selecionar(grupo.disciplina, a)
+                                    nav.navigate(Rotas.assunto(a.assunto.id))
+                                }
+                            }
                         }
                     }
                 }

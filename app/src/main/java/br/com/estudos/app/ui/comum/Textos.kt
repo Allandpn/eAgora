@@ -95,3 +95,24 @@ fun grupoParametro(chave: String) = when {
     else -> "Escada"
 }
 val ORDEM_GRUPOS = listOf("Tetos", "Turno", "Limiares de resultado", "Escada")
+
+/** Linha do concurso-alvo em Hoje (02_JORNADAS §4.4): contexto, não alarme. Os dias vêm do servidor. */
+fun textoProva(diasParaProva: Long?): String = when {
+    diasParaProva == null -> "sem data de prova"
+    diasParaProva == 0L -> "prova hoje"
+    diasParaProva < 0 -> "a prova já passou"
+    diasParaProva == 1L -> "prova amanhã"
+    else -> "prova em $diasParaProva dias"
+}
+
+/** "2026-10-15T14:09:21.58Z" → "15/10/2026" (data do instante, em UTC; basta para o histórico). */
+fun dataDoInstante(instante: String?): String = instante?.take(10)?.let(::dataBr) ?: ""
+
+val br.com.estudos.app.data.api.StatusAnalise.rotulo get() = when (this) {
+    br.com.estudos.app.data.api.StatusAnalise.LENDO_EDITAL -> "Lendo o edital…"
+    br.com.estudos.app.data.api.StatusAnalise.ESCOLHER_CARGO -> "Escolha o cargo"
+    br.com.estudos.app.data.api.StatusAnalise.SEPARANDO_ASSUNTOS -> "Separando os assuntos…"
+    br.com.estudos.app.data.api.StatusAnalise.PRONTA -> "Pronta para revisar"
+    br.com.estudos.app.data.api.StatusAnalise.CONFIRMADA -> "Confirmada"
+    br.com.estudos.app.data.api.StatusAnalise.FALHOU -> "Falhou — toque para tentar de novo"
+}

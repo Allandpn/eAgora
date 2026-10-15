@@ -7,6 +7,7 @@ import br.com.estudos.app.data.ItemRegistro
 import br.com.estudos.app.data.PlanoCache
 import br.com.estudos.app.data.ProvedorApi
 import br.com.estudos.app.data.Selecao
+import br.com.estudos.app.data.api.ConcursoDto
 import br.com.estudos.app.data.api.ErroApi
 import br.com.estudos.app.data.api.FilaRecuperacaoItemDto
 import br.com.estudos.app.data.api.JsonSge
@@ -26,6 +27,8 @@ data class HojeUiState(
     /** Instante do plano guardado, quando o que aparece veio do cache (especificação §5.4). */
     val planoGuardadoEm: Long? = null,
     val mostrarAntecipaveis: Boolean = false,
+    /** Linha do concurso-alvo (02_JORNADAS §4.4); null até carregar ou se falhar — não esconde o plano. */
+    val concurso: LinhaConcurso? = null,
 ) {
     private val p get() = plano ?: TurnoPlanoDto()
     val vazio get() = plano != null && p.filaRecuperacao.isEmpty() && p.reestudos.isEmpty() && p.blocoConteudo == null
@@ -34,6 +37,9 @@ data class HojeUiState(
     val mostrarRetorno get() = (p.diasSemEstudar ?: -1) >= 2
     val temAdiantar get() = p.vencidasAlemDoTeto > 0 || p.proximoBloco != null || p.antecipaveis.isNotEmpty()
 }
+
+/** O que a linha do topo mostra: o concurso-alvo, ou o convite a adicionar edital. */
+data class LinhaConcurso(val concurso: ConcursoDto?)
 
 /**
  * Hoje (J-2, J-4): mostra o plano que o servidor monta — nada é decidido aqui.
@@ -57,7 +63,17 @@ class HojeViewModel(
     fun abrir() {
         extraRecuperacoes = 0
         _estado.update { it.copy(mostrarAntecipaveis = false) }
+        carregarConcurso()
         carregar()
+    }
+
+    private fun carregarConcurso() {
+        viewModelScope.launch {
+            val linha = runCatching { chamar { provedor.api().concursoAtivo() } }.getOrNull()
+                ?.takeIf { it.isSuccessful } // 204 = sem concurso-alvo; erro = linha some
+                ?.let { LinhaConcurso(it.body()) }
+            _estado.update { it.copy(concurso = linha) }
+        }
     }
 
     fun drenarMais() {

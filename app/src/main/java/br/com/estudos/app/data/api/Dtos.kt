@@ -235,3 +235,105 @@ data class ProblemaDto(
     val campo: String? = null,
     val status: Int? = null,
 )
+
+// ---- Sprint 18 do SGE: concurso-alvo, disciplinas e edital novo (ADR-042, ADR-043) ----
+
+@Serializable
+enum class OrigemConcurso { ANALISE_IA, PLANEJAMENTO }
+
+@Serializable
+enum class StatusAnalise { LENDO_EDITAL, ESCOLHER_CARGO, SEPARANDO_ASSUNTOS, PRONTA, CONFIRMADA, FALHOU }
+
+@Serializable
+data class ConcursoDto(
+    val id: Long,
+    val nome: String,
+    val cargo: String? = null,
+    val banca: String? = null,
+    val dataProva: String? = null,
+    val origem: OrigemConcurso,
+    val ativo: Boolean,
+    val ativadoEm: String? = null,
+    val desativadoEm: String? = null,
+    /** Calculado pelo servidor; nulo sem data de prova (02_JORNADAS §4.4). */
+    val diasParaProva: Long? = null,
+    val totalAssuntos: Int = 0,
+    val emComumComAtivo: Long = 0,
+)
+
+@Serializable
+data class DisciplinaResumoDto(
+    val id: Long,
+    val nome: String,
+    val peso: TipoPeso,
+    val backlog: Long = 0,
+    val frente: Long = 0,
+    val consolidados: Long = 0,
+    val total: Long = 0,
+)
+
+@Serializable
+data class IaStatusDto(val disponivel: Boolean, val motivo: String? = null, val modelo: String? = null)
+
+@Serializable
+data class AssuntoPropostoDto(
+    val nome: String,
+    val assuntoExistenteId: Long? = null,
+    val assuntoExistenteNome: String? = null,
+    val disciplinaAtualNome: String? = null,
+)
+
+@Serializable
+data class DisciplinaPropostaDto(
+    val nome: String,
+    val questoes: Int? = null,
+    val peso: TipoPeso,
+    val pesoDeterminado: Boolean = true,
+    val disciplinaExistenteId: Long? = null,
+    val disciplinaExistenteNome: String? = null,
+    val assuntos: List<AssuntoPropostoDto> = emptyList(),
+)
+
+@Serializable
+data class ResumoPropostaDto(val novos: Int = 0, val emComum: Int = 0, val foraDoEdital: Int = 0)
+
+@Serializable
+data class AnaliseEditalDto(
+    val id: Long,
+    val nomeArquivo: String,
+    val status: StatusAnalise,
+    val etapaFalha: StatusAnalise? = null,
+    val erro: String? = null,
+    val modelo: String? = null,
+    val concursoNome: String? = null,
+    val banca: String? = null,
+    val dataProva: String? = null,
+    val cargos: List<String> = emptyList(),
+    val cargoEscolhido: String? = null,
+    val proposta: List<DisciplinaPropostaDto>? = null,
+    val resumo: ResumoPropostaDto? = null,
+    val concursoId: Long? = null,
+)
+
+@Serializable
+data class EscolhaCargoDto(val cargo: String)
+
+@Serializable
+data class AssuntoConfirmadoDto(val nome: String, val assuntoExistenteId: Long?)
+
+@Serializable
+data class DisciplinaConfirmadaDto(
+    val nome: String,
+    val disciplinaExistenteId: Long?,
+    val peso: TipoPeso,
+    val assuntos: List<AssuntoConfirmadoDto>,
+)
+
+@Serializable
+data class ConfirmacaoEditalDto(
+    val nome: String,
+    val cargo: String?,
+    val banca: String?,
+    val dataProva: String?,
+    val disciplinas: List<DisciplinaConfirmadaDto>,
+)
