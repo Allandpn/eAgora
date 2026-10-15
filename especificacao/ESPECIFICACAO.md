@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 |---|---|
-| Versão | 1.0.0 |
+| Versão | 1.1.0 |
 | Data | 2026-10-15 |
 | Status | Vigente |
 | Subordinada a | `SGE-Concursos`: `especificacao/02_JORNADAS.md` v1.8.0 (jornadas, telas, regras vinculantes, §2.2 lembrete), `docs/00A_ADR.md` ADR-015, ADR-038, ADR-040, ADR-041, `docs/04_FRONTEND.md` (comportamento de referência das telas) |
@@ -225,6 +225,15 @@ perdida.
 - Rascunho de recuperação guarda o instante em que a tela abriu, para o tempo
   medido continuar honesto.
 - Rascunho com mais de 24 h é descartado ao abrir (o dia do registro mudou).
+- **Voltar apaga o rascunho.** Sair da tela pelo voltar é "sair sem registrar"
+  (§3.2): o rascunho só sobrevive ao Android fechar o app, a uma navegação
+  para a frente (ex.: "+ registrar um erro") e a uma falha de envio. Sem isso,
+  reabrir a recuperação horas depois herdaria o instante de abertura antigo e
+  mediria um tempo falso.
+- Rascunho de Registrar é de **um tipo**. Abrir o mesmo assunto com outro tipo,
+  ou trocar a pílula, começa uma tentativa nova (`tentativaId` novo): o mesmo
+  id com outro tipo faria o servidor devolver o registro antigo (D-45) e
+  perder o novo.
 
 ### 5.4 Leitura sem rede
 
@@ -244,6 +253,7 @@ Regras de produto: `02_JORNADAS` §2.2 do SGE. Implementação:
   aceitável para um lembrete.
 - No disparo, o worker chama `GET /api/turno/plano`:
   - `diasSemEstudar == 0` (já estudou hoje): **não notifica**;
+  - plano sem nada (sem recuperação, reestudo nem bloco): **não notifica**;
   - com resposta: "Hoje: N recuperações e 1 bloco de leitura." (só as partes
     que existem; com reestudo, "N para reestudar");
   - sem resposta: "Hora do turno de estudo." — sem números, sem alarme.
@@ -259,8 +269,14 @@ Regras de produto: `02_JORNADAS` §2.2 do SGE. Implementação:
 | API e DTOs | `MockWebServer`: o app desserializa respostas reais do SGE (copiadas da execução de 2026-10-15) e trata `problem+json`, erro sem JSON e falha de conexão |
 | ViewModels | JVM, `kotlinx-coroutines-test`, API falsa: estados de carregando/erro/dados, envio otimista e falha, rascunho, `extraRecuperacoes` |
 | Regras vinculantes de Recuperar | Teste de Compose com Robolectric: o resultado não existe na etapa 1 |
-| Lembrete | Teste do texto da notificação a partir do plano, e da regra "já estudou hoje" |
+| Lembrete | Teste do texto da notificação a partir do plano, e da regra "já estudou hoje"; cálculo do primeiro disparo |
+| Abertura | Robolectric com a `MainActivity` inteira: a primeira abertura cai na configuração do servidor |
 | Build | `./gradlew assembleDebug testDebugUnitTest` no CI a cada push |
+
+O Robolectric roda **offline**: o runtime Android dele (`android-all-instrumented`,
+SDK 35) é baixado pelo Gradle como dependência comum e apontado por
+`robolectric.dependency.dir` — o downloader próprio do Robolectric falha atrás
+de proxy.
 
 Não há teste instrumentado em aparelho no CI (sem emulador no runner). A
 conferência em aparelho real é do usuário (§8).
@@ -288,3 +304,4 @@ conferência em aparelho real é do usuário (§8).
 | Versão | Data | Mudança |
 |---|---|---|
 | 1.0.0 | 2026-10-15 | Criado, a pedido do usuário, junto com a ADR-041 e `02_JORNADAS` v1.8.0 do SGE |
+| 1.1.0 | 2026-10-15 | Implementação: §5.3 ganha "voltar apaga o rascunho" e "rascunho de Registrar é de um tipo" (achados ao implementar); §6 explicita "plano sem nada não notifica"; §7 registra Robolectric offline e o teste de abertura |

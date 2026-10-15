@@ -1,0 +1,6 @@
+{
+  "chave": "duracao_bloco_min",
+  "valor": "60",
+  "descricao": "Duração sugerida de um bloco de conteúdo, em minutos — só pré-preenche o tempo do registro, que o usuário confirma ou corrige (01_DOMINIO §7.7, D-29)",
+  "atualizadoEm": "2026-10-15T07:40:54.747854Z"
+}

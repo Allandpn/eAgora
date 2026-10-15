@@ -1,0 +1,10 @@
+{
+  "detail": "questoesCorretas e questoesTotal são obrigatórios para QUESTOES.",
+  "instance": "/api/sessoes",
+  "status": 422,
+  "title": "Unprocessable Content",
+  "type": "https://estudos.local/errors/regra-de-negocio",
+  "codigo": "QUESTOES_OBRIGATORIAS",
+  "campo": "questoesTotal",
+  "requestId": "c9545355"
+}

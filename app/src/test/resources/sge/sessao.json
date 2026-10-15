@@ -1,0 +1,16 @@
+{
+  "id": 16,
+  "assuntoId": 3,
+  "tipo": "ESTUDO",
+  "data": "2026-10-15",
+  "tempoMinutos": 30,
+  "resultado": null,
+  "questoesCorretas": null,
+  "questoesTotal": null,
+  "formato": null,
+  "previsaoPercentual": null,
+  "previsaoReconstrucao": null,
+  "tentativaId": "fe8c57f4-4473-4911-b212-d22dfd0331bb",
+  "ativo": true,
+  "segmentoId": null
+}

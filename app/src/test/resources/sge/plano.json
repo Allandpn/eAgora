@@ -1,0 +1,103 @@
+{
+  "filaRecuperacao": [
+    {
+      "assuntoId": 3,
+      "nome": "Transações",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 4,
+      "nome": "SQL — junções",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 5,
+      "nome": "Views",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 6,
+      "nome": "Triggers",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 7,
+      "nome": "NoSQL",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 8,
+      "nome": "Modelagem ER",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 9,
+      "nome": "Álgebra relacional",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    },
+    {
+      "assuntoId": 10,
+      "nome": "Concorrência",
+      "nivel": 1,
+      "dataPrevista": "2026-09-30",
+      "diasAtraso": 15
+    }
+  ],
+  "reestudos": [
+    {
+      "assuntoId": 2,
+      "nome": "Índices",
+      "nivel": 1,
+      "dataFalha": "2026-10-10"
+    }
+  ],
+  "blocoConteudo": {
+    "id": 13,
+    "disciplinaId": 2,
+    "nome": "TCP/IP — camadas",
+    "peso": "MEDIO",
+    "dificuldadePercebida": 3,
+    "ordem": 1,
+    "ativo": true,
+    "chaveExterna": "uuid-tcp"
+  },
+  "blocoContinuacao": true,
+  "segmentoSugerido": {
+    "id": 2,
+    "ordem": 2,
+    "total": 3,
+    "arquivo": "https://drive.google.com/file/d/t2/view",
+    "paginaInicial": 16,
+    "paginaFinal": 30,
+    "tempoEstimadoMin": 60
+  },
+  "alertaRepresamento": true,
+  "diasSemEstudar": 1,
+  "represado": 12,
+  "estimativaDiasParaNormalizar": 1,
+  "vencidasAlemDoTeto": 4,
+  "proximoBloco": {
+    "id": 3,
+    "ordem": 3,
+    "total": 3,
+    "arquivo": "https://drive.google.com/file/d/t3/view",
+    "paginaInicial": 31,
+    "paginaFinal": 40,
+    "tempoEstimadoMin": 40
+  },
+  "antecipaveis": []
+}

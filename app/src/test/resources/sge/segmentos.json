@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "assuntoId": 13,
+    "chaveExterna": "t1",
+    "ordem": 1,
+    "arquivo": "https://drive.google.com/file/d/t1/view",
+    "paginaInicial": 1,
+    "paginaFinal": 15,
+    "tempoEstimadoMin": 60
+  },
+  {
+    "id": 2,
+    "assuntoId": 13,
+    "chaveExterna": "t2",
+    "ordem": 2,
+    "arquivo": "https://drive.google.com/file/d/t2/view",
+    "paginaInicial": 16,
+    "paginaFinal": 30,
+    "tempoEstimadoMin": 60
+  },
+  {
+    "id": 3,
+    "assuntoId": 13,
+    "chaveExterna": "t3",
+    "ordem": 3,
+    "arquivo": "https://drive.google.com/file/d/t3/view",
+    "paginaInicial": 31,
+    "paginaFinal": 40,
+    "tempoEstimadoMin": 40
+  }
+]

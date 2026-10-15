@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nome": "Banco de Dados",
+    "peso": "ALTO",
+    "ativo": true
+  },
+  {
+    "id": 2,
+    "nome": "Redes",
+    "peso": "MEDIO",
+    "ativo": true
+  }
+]

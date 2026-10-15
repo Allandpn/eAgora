@@ -1,0 +1,12 @@
+{
+  "objetiva": {
+    "mediaDesvio": 10.0,
+    "n": 1
+  },
+  "subjetiva": {
+    "superestimou": 1,
+    "subestimou": 0,
+    "acertouPrevisao": 0,
+    "n": 1
+  }
+}

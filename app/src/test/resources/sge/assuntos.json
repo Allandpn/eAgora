@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "disciplinaId": 1,
+    "nome": "Normalização",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 1,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 2,
+    "disciplinaId": 1,
+    "nome": "Índices",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 2,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 3,
+    "disciplinaId": 1,
+    "nome": "Transações",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 3,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 4,
+    "disciplinaId": 1,
+    "nome": "SQL — junções",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 4,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 5,
+    "disciplinaId": 1,
+    "nome": "Views",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 5,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 6,
+    "disciplinaId": 1,
+    "nome": "Triggers",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 6,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 7,
+    "disciplinaId": 1,
+    "nome": "NoSQL",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 7,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 8,
+    "disciplinaId": 1,
+    "nome": "Modelagem ER",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 8,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 9,
+    "disciplinaId": 1,
+    "nome": "Álgebra relacional",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 9,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 10,
+    "disciplinaId": 1,
+    "nome": "Concorrência",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 10,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 11,
+    "disciplinaId": 1,
+    "nome": "Backup e recuperação",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 11,
+    "ativo": true,
+    "chaveExterna": null
+  },
+  {
+    "id": 12,
+    "disciplinaId": 1,
+    "nome": "Data Warehouse",
+    "peso": "BAIXO",
+    "dificuldadePercebida": 3,
+    "ordem": 12,
+    "ativo": true,
+    "chaveExterna": null
+  }
+]

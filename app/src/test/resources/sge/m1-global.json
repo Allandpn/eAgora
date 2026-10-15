@@ -1,0 +1,13 @@
+{
+  "janela": "GLOBAL",
+  "linhas": [
+    {
+      "disciplinaId": null,
+      "formato": "MULTIPLA_ESCOLHA",
+      "acertos": 14,
+      "total": 20,
+      "confiavel": false,
+      "percentual": 70.0
+    }
+  ]
+}

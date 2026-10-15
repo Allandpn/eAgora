@@ -1,0 +1,122 @@
+[
+  {
+    "chave": "limiar_sucesso_multipla_escolha",
+    "valor": "80",
+    "descricao": "Percentual mínimo de acerto para SUCESSO em QUESTOES de múltipla escolha (01_DOMINIO §4.2.1)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "limiar_parcial_multipla_escolha",
+    "valor": "60",
+    "descricao": "Percentual mínimo de acerto para PARCIAL em QUESTOES de múltipla escolha (01_DOMINIO §4.2.1)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "limiar_sucesso_certo_errado",
+    "valor": "90",
+    "descricao": "Percentual mínimo de acerto para SUCESSO em QUESTOES certo/errado (01_DOMINIO §4.2.1)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "limiar_parcial_certo_errado",
+    "valor": "75",
+    "descricao": "Percentual mínimo de acerto para PARCIAL em QUESTOES certo/errado (01_DOMINIO §4.2.1)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "limiar_sucesso_flashcards",
+    "valor": "80",
+    "descricao": "Percentual mínimo de acerto para SUCESSO em FLASHCARDS (01_DOMINIO §4.2, sem banca)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "limiar_parcial_flashcards",
+    "valor": "60",
+    "descricao": "Percentual mínimo de acerto para PARCIAL em FLASHCARDS (01_DOMINIO §4.2, sem banca)",
+    "atualizadoEm": "2026-10-15T07:40:15.789355Z"
+  },
+  {
+    "chave": "intervalo_nivel_1",
+    "valor": "1",
+    "descricao": "Dias até a próxima revisão no nível 1 da escada (01_DOMINIO §5.1/§5.4)",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_nivel_2",
+    "valor": "3",
+    "descricao": "Dias até a próxima revisão no nível 2 da escada",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_nivel_3",
+    "valor": "7",
+    "descricao": "Dias até a próxima revisão no nível 3 da escada",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_nivel_4",
+    "valor": "15",
+    "descricao": "Dias até a próxima revisão no nível 4 da escada",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_nivel_5",
+    "valor": "30",
+    "descricao": "Dias até a próxima revisão no nível 5 da escada",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_nivel_6",
+    "valor": "90",
+    "descricao": "Dias até a próxima revisão no nível 6 da escada",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "intervalo_manutencao_dias",
+    "valor": "150",
+    "descricao": "Dias entre revisões de manutenção, assunto consolidado (01_DOMINIO §5.5, \"120-180\", valor único determinístico)",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "janela_tolerancia_percentual",
+    "valor": "20",
+    "descricao": "Percentual do intervalo do nível que pode ser antecipado sem perder o crédito da revisão (01_DOMINIO §5.4)",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "lote_minimo_questoes",
+    "valor": "5",
+    "descricao": "Abaixo disto, QUESTOES/FLASHCARDS registra e conta tempo mas não cumpre revisão nem move a escada (01_DOMINIO §4.3, D-09)",
+    "atualizadoEm": "2026-10-15T07:40:15.806664Z"
+  },
+  {
+    "chave": "teto_diario_recuperacoes",
+    "valor": "8",
+    "descricao": "Recuperações oferecidas por dia antes de rolar pro dia seguinte (01_DOMINIO §5.3/§12)",
+    "atualizadoEm": "2026-10-15T07:40:15.823151Z"
+  },
+  {
+    "chave": "teto_global_frente",
+    "valor": "100",
+    "descricao": "Quantos assuntos podem estar na frente de estudo ao mesmo tempo (01_DOMINIO §6.7)",
+    "atualizadoEm": "2026-10-15T07:40:15.823151Z"
+  },
+  {
+    "chave": "teto_disciplina_frente",
+    "valor": "12",
+    "descricao": "Quantos assuntos de uma mesma disciplina podem estar na frente ao mesmo tempo (01_DOMINIO §6.7)",
+    "atualizadoEm": "2026-10-15T07:40:15.823151Z"
+  },
+  {
+    "chave": "duracao_bloco_min",
+    "valor": "50",
+    "descricao": "Duração sugerida de um bloco de conteúdo, em minutos — só pré-preenche o tempo do registro, que o usuário confirma ou corrige (01_DOMINIO §7.7, D-29)",
+    "atualizadoEm": "2026-10-15T07:40:15.929735Z"
+  },
+  {
+    "chave": "parciais_seguidos_dividir",
+    "valor": "4",
+    "descricao": "Quantos resultados PARCIAL seguidos no mesmo assunto fazem o balanço semanal sugerir dividi-lo (01_DOMINIO §3.2.1, D-35)",
+    "atualizadoEm": "2026-10-15T07:40:15.946786Z"
+  }
+]

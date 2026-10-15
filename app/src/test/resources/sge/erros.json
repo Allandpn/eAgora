@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "assuntoId": 1,
+    "sessaoId": null,
+    "descricao": "Confundi 3FN com BCNF",
+    "causa": "INTERPRETACAO",
+    "confianca": "ALTA",
+    "resolvido": false
+  }
+]

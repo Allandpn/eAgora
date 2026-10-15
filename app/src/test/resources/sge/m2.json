@@ -1,0 +1,11 @@
+{
+  "assuntoId": 1,
+  "series": [
+    {
+      "tipo": "QUESTOES",
+      "percentualPrimeira": 70.0,
+      "percentualMediaSeguintes": null,
+      "totalObservacoes": 1
+    }
+  ]
+}

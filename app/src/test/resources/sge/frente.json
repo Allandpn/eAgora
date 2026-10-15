@@ -1,0 +1,13 @@
+{
+  "frenteAtual": 13,
+  "tetoGlobalFrente": 100,
+  "backlog": 0,
+  "consolidados": 0,
+  "represado": 12,
+  "tetoDiario": 8,
+  "alertaRepresamento": true,
+  "estimativaDiasParaNormalizar": 1,
+  "avisoTetoInsuficiente": false,
+  "entraramNaSemana": 1,
+  "consolidaramNaSemana": 0
+}
