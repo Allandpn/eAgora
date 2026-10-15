@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Estudos</string>
+    <string name="app_name">eAgora</string>
     <string name="canal_lembrete">Lembrete do turno</string>
     <string name="canal_lembrete_descricao">Uma notificação por dia, no horário que você escolher, com o que há para estudar hoje.</string>
 </resources>

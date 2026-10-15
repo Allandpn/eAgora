@@ -1,8 +1,8 @@
-# Especificação — App Android do SGE-Concursos
+# Especificação — eAgora, o app Android do SGE-Concursos
 
 | Campo | Valor |
 |---|---|
-| Versão | 1.2.0 |
+| Versão | 1.3.0 |
 | Data | 2026-10-15 |
 | Status | Vigente |
 | Subordinada a | `SGE-Concursos`: `especificacao/02_JORNADAS.md` v1.8.0 (jornadas, telas, regras vinculantes, §2.2 lembrete), `docs/00A_ADR.md` ADR-015, ADR-038, ADR-040, ADR-041, `docs/04_FRONTEND.md` (comportamento de referência das telas) |
@@ -330,5 +330,6 @@ conferência em aparelho real é do usuário (§8).
 | Versão | Data | Mudança |
 |---|---|---|
 | 1.0.0 | 2026-10-15 | Criado, a pedido do usuário, junto com a ADR-041 e `02_JORNADAS` v1.8.0 do SGE |
+| 1.3.0 | 2026-10-15 | O app passa a se chamar **eAgora** (decisão do usuário); repositório `Allandpn/-eAgora` |
 | 1.2.0 | 2026-10-15 | Sprint 18 do SGE (ADR-042, ADR-043): linha do concurso-alvo em Hoje, disciplinas em Assuntos, telas Concursos e Edital novo (§3.9, §3.10); §4 com os endpoints novos |
 | 1.1.0 | 2026-10-15 | Implementação: §5.3 ganha "voltar apaga o rascunho" e "rascunho de Registrar é de um tipo" (achados ao implementar); §6 explicita "plano sem nada não notifica"; §7 registra Robolectric offline e o teste de abertura |

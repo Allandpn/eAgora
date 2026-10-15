@@ -1,4 +1,4 @@
-# SGE-Concursos — App Android
+# eAgora — app Android do SGE-Concursos
 
 App Android nativo do [SGE-Concursos](https://github.com/Allandpn/SGE-Concursos):
 plano do dia, recuperação espaçada, registro de estudo, erros, progresso e
